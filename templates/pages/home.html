@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link type="text/css" rel="stylesheet" href="/static/css/rambostyle.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <title>Rambo Tracker</title>
+</head>
+<body>
+
+<div class="main">
+    <p>Welcome to Rambo Tracker</p>
+    <form id="search_form" method="post" class="form" action="/search">
+        {{ form.steamname(class_ = 'form-control first-input', placeholder = form.steamname.label.text, required = true,
+        autofocus = true) }}
+        {{ form.csrf_token }}
+        <div class="form-submit-container">
+            <button id="submit" class="btn btn-8 btn-8f">Hunt Your Prey</button>
+        </div>
+    </form>
+</div>
+
+<script>
+    $('#submit').click(function (event) {
+        $("#search_form").submit();
+    });
+</script>
+
+</body>
+</html>
